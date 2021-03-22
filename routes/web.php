@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dump(User::all()->toArray());
     return view('welcome');
+});
+
+Route::get('/ga', function () {
+
+    $client = new \GuzzleHttp\Client();
+
+    $response = $client->request('POST', 'https://analytics.google.com/g/collect?v=2&tid=G-M8MV83S2JG', [
+        'form_params' => [
+            'dl' => 'http://app.test1',
+            'en' => 'test_event',
+            'dt' => 'Lara2',
+            'epn.event_name' =>  1,
+            'epn.test2' =>  33
+        ]]);
+
+    echo 'GA page';
+    exit();
 });
