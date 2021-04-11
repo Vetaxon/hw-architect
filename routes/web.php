@@ -18,3 +18,7 @@ Route::get('/', function () {
     dump(User::all()->toArray());
     return view('welcome');
 });
+
+Route::get('/images-page', function () {
+    return view('images');
+});
