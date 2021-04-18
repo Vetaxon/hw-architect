@@ -10,6 +10,7 @@
 SELECT `name` AS `name_first` FROM `users` WHERE `id` = 1;
 
 SELECT @@TX_ISOLATION;
+SELECT @@autocommit;
 
 START TRANSACTION;
 

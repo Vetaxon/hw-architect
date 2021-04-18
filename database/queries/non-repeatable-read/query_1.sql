@@ -8,6 +8,7 @@
 # run it before query_2
 
 SELECT @@TX_ISOLATION;
+SELECT @@autocommit;
 
 START TRANSACTION;
 
