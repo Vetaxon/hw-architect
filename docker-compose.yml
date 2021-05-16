@@ -1,0 +1,49 @@
+version: '3.5'
+
+networks:
+  cdn:
+    driver: bridge
+
+services:
+  nginx1:
+    image: nginx:alpine
+    volumes:
+      - ./cdn/html:/var/www/html
+      - ./cdn/nginx1:/etc/nginx/conf.d
+    ports:
+      - "8081:8081"
+    networks:
+      - cdn
+  nginx2:
+    image: nginx:alpine
+    volumes:
+      - ./cdn/html:/var/www/html
+      - ./cdn/nginx2:/etc/nginx/conf.d
+    ports:
+      - "8082:8082"
+    networks:
+      - cdn
+  nginx3:
+    image: nginx:alpine
+    volumes:
+      - ./cdn/html:/var/www/html
+      - ./cdn/nginx3:/etc/nginx/conf.d
+    ports:
+      - "8083:8083"
+    networks:
+      - cdn
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./cdn/html:/var/www/html
+      - ./cdn/nginx:/etc/nginx/conf.d
+      - ./cdn/geo.conf:/etc/nginx/geo.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - nginx1
+      - nginx2
+      - nginx3
+    networks:
+      - cdn
+
