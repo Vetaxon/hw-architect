@@ -40,9 +40,9 @@ class BalancedBinaryTree implements BalancedBinaryTreeInterface
 
         if ($parent->getLeft() !== null && $parent->getLeft()->getKey() === $key) {
             $parent->setLeft(null);
+        } else {
+            $parent->setRight(null);
         }
-
-        $parent->setRight(null);
 
         if ($node->getLeft() !== null) {
             $this->insertNode($node->getLeft(), $this->root);
