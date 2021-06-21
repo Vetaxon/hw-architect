@@ -24,7 +24,19 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // full
+        $schedule->command('users:backup:full')->daily();
+
+        // incremental
+        $schedule->command('users:backup:full')->weeklyOn(1);
+        $schedule->command('users:backup:incremental')->daily();
+
+        // differential
+        $schedule->command('users:backup:full')->weeklyOn(1);
+        $schedule->command('users:backup:differential')->daily();
+
+        // delta
+        $schedule->command('users:backup:delta')->hourly();
     }
 
     /**
