@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ruleset name="Heli Standard" namespace="Heli-Laravel\CS\Standard">
+
+    <description>A custom coding standard for Heli Laravel Project</description>
+
+    <ini name="memory_limit" value="512M"/>
+
+    <rule ref="PSR12"/>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="120"/>
+        </properties>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces">
+        <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName"/>
+    </rule>
+
+
+    <rule ref="SlevomatCodingStandard.Operators">
+        <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators" />
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Variables"/>
+
+    <rule ref="SlevomatCodingStandard.Arrays"/>
+
+    <rule ref="SlevomatCodingStandard.Functions.StrictCall" />
+    <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure" />
+    <rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue" />
+
+
+    <rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat" />
+    <rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint" />
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />
+
+
+    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration" />
+    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing" />
+
+    <rule ref="SlevomatCodingStandard.Exceptions" />
+
+</ruleset>
